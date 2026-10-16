@@ -1,0 +1,35 @@
+site_name: Sonvik
+site_description: Local-first, Git-native API execution and verification
+site_url: https://nanielito.github.io/sonvik/
+repo_url: https://github.com/Nanielito/sonvik
+
+theme:
+  name: mkdocs
+
+plugins:
+  - search
+
+nav:
+  - Home: README.md
+  - Español:
+      - Introducción: es/README.md
+      - Brief del proyecto: es/project-brief.md
+      - Visión y alcance: es/01-vision-y-alcance.md
+      - Especificación de requisitos: es/02-especificacion-de-requisitos.md
+      - Casos de uso: es/03-casos-de-uso.md
+      - Arquitectura de software: es/04-arquitectura-de-software.md
+      - Diccionario de datos: es/05-diccionario-de-datos.md
+      - Roadmap y gobernanza: es/06-roadmap-y-gobernanza.md
+  - English:
+      - Introduction: en/README.md
+      - Project brief: en/project-brief.md
+      - Vision and scope: en/01-vision-and-scope.md
+      - Software requirements: en/02-software-requirements-specification.md
+      - Use cases: en/03-use-cases.md
+      - Software architecture: en/04-software-architecture.md
+      - Data dictionary: en/05-data-dictionary.md
+      - Roadmap and governance: en/06-roadmap-and-governance.md
+  - Architecture decisions:
+      - Index: adr/README.md
+      - ADR-001 (Español): adr/ADR-001-mvp-architecture.md
+      - ADR-001 (English): adr/ADR-001-mvp-architecture-en.md
