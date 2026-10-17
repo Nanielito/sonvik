@@ -32,6 +32,7 @@ Flows, captures, body assertions, scripting, importers, structured reports, GUI,
 - `docs/adr/`: architecture decision records in both languages when applicable.
 - `.workforge/inbox/`: provider-neutral planning requirements.
 - `.github/workflows/`: CI and documentation publishing.
+- `release-plz.toml` and `CHANGELOG.md`: release preparation and release history.
 
 Do not commit `target/`, `site/`, `.workforge/.env`, or `.workforge/output/`.
 
@@ -94,6 +95,13 @@ Before implementation, claim the issue and move it to `doing`. Treat its managed
 
 Keep `.workforge/workforge.yaml`, `.workforge/.env.example`, `.workforge/README.md`, and inbox requirements versioned. Keep credentials and generated output local.
 
+## Releases
+
+- release-plz owns version changes, `CHANGELOG.md`, `v<semver>` tags, and crates.io publication.
+- Only a merged `release-plz-*` pull request may publish; ordinary pushes must remain non-publishing.
+- The GitHub Release and downloadable binaries belong to the separate distribution workflow.
+- Never merge a release pull request until all required distribution and release checks are available and passing.
+
 ## Keep in sync
 
 Every behavioral change must update the smallest applicable set below in the same pull request:
@@ -114,4 +122,3 @@ Spanish is canonical, but English must be updated in the same change. Preserve e
 ## Definition of done
 
 A change is done when its accepted behavior and relevant errors are implemented, proportional tests pass, secrets remain redacted, bilingual documentation and Workforge tracking are synchronized, generated/local state is excluded, and the handoff includes verification evidence plus a PR-ready title and summary.
-
