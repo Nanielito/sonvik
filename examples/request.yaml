@@ -1,0 +1,13 @@
+version: 1
+name: Create user
+request:
+  method: POST
+  url: "{{baseUrl}}/users"
+  headers:
+    Accept: application/json
+  body:
+    json:
+      name: Daniel
+expect:
+  status: 201
+

@@ -2,6 +2,25 @@
 
 A local-first, Git-native tool for executing and verifying APIs from versionable files.
 
+## MVP
+
+```bash
+cargo run -- run examples/request.yaml --env examples/environment.yaml
+```
+
+```yaml
+version: 1
+request:
+  method: GET
+  url: "{{baseUrl}}/health"
+expect:
+  status: 200
+```
+
+Sonvik exits with `0` when the assertion passes, `1` when it fails, and `2` for invalid configuration or execution errors. Secrets belong in process environment variables, never `--var` or versioned files.
+
+Requires Rust 1.89 or newer.
+
 ## Project documentation
 
 - [Documentation](https://nanielito.github.io/sonvik/)
