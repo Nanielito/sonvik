@@ -21,6 +21,8 @@ The crates.io token is required for the first publication because new crates can
 4. Merging that pull request makes release-plz publish the crate and create the corresponding tag.
 5. The tag starts the distribution workflow. The GitHub Release is published only after every required native build and checksum job succeeds.
 
+The publication job uses `RELEASE_PLZ_TOKEN` to create the tag because events generated with the default `GITHUB_TOKEN` cannot start the distribution workflow. To recover an existing tag without moving it or republishing crates.io, manually run the **Release** workflow with the `v<semver>` tag; the workflow validates that the tag, commit, and Cargo version match, and reuses any existing GitHub Release.
+
 `release_always = false` limits publication and tag creation to commits from the release pull request. An open pull request or an ordinary push does not publish.
 
 Release archives are built for Linux x86_64, macOS Apple Silicon, and Windows x86_64. Installers, package-manager formulas, signing, and additional architectures are not part of the MVP.
