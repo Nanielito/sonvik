@@ -20,6 +20,7 @@ nav:
       - Arquitectura de software: es/04-arquitectura-de-software.md
       - Diccionario de datos: es/05-diccionario-de-datos.md
       - Roadmap y gobernanza: es/06-roadmap-y-gobernanza.md
+      - Publicación: es/releasing.md
   - English:
       - Introduction: en/README.md
       - Project brief: en/project-brief.md
@@ -29,6 +30,7 @@ nav:
       - Software architecture: en/04-software-architecture.md
       - Data dictionary: en/05-data-dictionary.md
       - Roadmap and governance: en/06-roadmap-and-governance.md
+      - Releasing: en/releasing.md
   - Architecture decisions:
       - Index: adr/README.md
       - ADR-001 (Español): adr/ADR-001-mvp-architecture.md
