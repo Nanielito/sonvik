@@ -1,0 +1,4 @@
+version: 1
+variables:
+  baseUrl: http://localhost:8080
+
