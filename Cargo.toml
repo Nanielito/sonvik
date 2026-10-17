@@ -5,6 +5,22 @@ edition = "2024"
 rust-version = "1.89"
 license = "MIT OR Apache-2.0"
 description = "Local-first, Git-native API verification"
+repository = "https://github.com/Nanielito/sonvik"
+homepage = "https://nanielito.github.io/sonvik/"
+readme = "README.md"
+keywords = ["api", "cli", "http", "testing"]
+categories = ["command-line-utilities", "development-tools::testing"]
+publish = ["crates-io"]
+include = [
+    "/src/**",
+    "/tests/**",
+    "/examples/**",
+    "/Cargo.toml",
+    "/Cargo.lock",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE-*",
+]
 
 [dependencies]
 reqwest = { version = "0.13", default-features = false, features = ["blocking", "json", "rustls"] }
