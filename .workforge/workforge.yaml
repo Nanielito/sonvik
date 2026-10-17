@@ -1,0 +1,28 @@
+name: sonvik
+default_provider: github
+providers:
+  github:
+    owner: nanielito
+    repository: sonvik
+    project_number: 3
+    owner_type: user
+    labels:
+      bug: bug
+      ci: ci
+      docs: documentation
+      feature: enhancement
+      help: help wanted
+      maintenance: maintenance
+      question: question
+    milestones:
+      v0.1.0: 1
+    status:
+      field: Status
+      values:
+        todo: Todo
+        doing: In Progress
+        done: Done
+defaults:
+  source: manual
+  namespace: nanielito/sonvik
+  dry_run: true
