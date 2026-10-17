@@ -33,6 +33,7 @@ Flows, captures, body assertions, scripting, importers, structured reports, GUI,
 - `.workforge/inbox/`: provider-neutral planning requirements.
 - `.github/workflows/`: CI and documentation publishing.
 - `release-plz.toml` and `CHANGELOG.md`: release preparation and release history.
+- `dist-workspace.toml` and `.github/workflows/release.yml`: portable release archives and checksums.
 
 Do not commit `target/`, `site/`, `.workforge/.env`, or `.workforge/output/`.
 
@@ -100,6 +101,7 @@ Keep `.workforge/workforge.yaml`, `.workforge/.env.example`, `.workforge/README.
 - release-plz owns version changes, `CHANGELOG.md`, `v<semver>` tags, and crates.io publication.
 - Only a merged `release-plz-*` pull request may publish; ordinary pushes must remain non-publishing.
 - The GitHub Release and downloadable binaries belong to the separate distribution workflow.
+- `cargo-dist` publishes archives for Linux x86_64, macOS Apple Silicon, and Windows x86_64, with SHA-256 checksums and no installers.
 - Never merge a release pull request until all required distribution and release checks are available and passing.
 
 ## Keep in sync
