@@ -3,7 +3,7 @@
 | Field | Value |
 | --- | --- |
 | Status | Approved |
-| Version | 0.1.1 |
+| Version | 0.1.0 |
 | Product target | MVP 0.1.0 |
 | Last updated | 2026-10-16 |
 
@@ -105,5 +105,4 @@ An ADR includes context, options, decision, consequences, validation, and review
 
 | Version | Date | Change |
 | --- | --- | --- |
-| 0.1.1 | 2026-10-16 | Resolve the MVP release matrix and distribution gate |
 | 0.1.0 | 2026-10-16 | Initial roadmap and governance |

@@ -3,7 +3,7 @@
 | Campo | Valor |
 | --- | --- |
 | Estado | Aprobado |
-| Versión | 0.1.1 |
+| Versión | 0.1.0 |
 | Producto objetivo | MVP 0.1.0 |
 | Última actualización | 2026-10-16 |
 
@@ -105,5 +105,4 @@ Un ADR incluye contexto, opciones, decisión, consecuencias, validación y condi
 
 | Versión | Fecha | Cambio |
 | --- | --- | --- |
-| 0.1.1 | 2026-10-16 | Resolución de la matriz y el gate de distribución del MVP |
 | 0.1.0 | 2026-10-16 | Roadmap y gobernanza iniciales |
