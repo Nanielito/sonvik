@@ -29,4 +29,6 @@ Requires Rust 1.89 or newer.
 
 ## License
 
+Copyright 2026 Daniel Ramirez.
+
 Licensed under either [Apache License 2.0](LICENSE-APACHE) or the [MIT License](LICENSE-MIT), at your option.
