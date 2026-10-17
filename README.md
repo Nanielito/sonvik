@@ -21,6 +21,18 @@ Sonvik exits with `0` when the assertion passes, `1` when it fails, and `2` for 
 
 Requires Rust 1.89 or newer.
 
+## Installation
+
+Install from crates.io when Rust is available:
+
+```bash
+cargo install sonvik --locked
+```
+
+Ready-to-run archives and their SHA-256 checksums are also available on the
+[latest GitHub Release](https://github.com/Nanielito/sonvik/releases/latest) for
+Linux x86_64, macOS Apple Silicon, and Windows x86_64.
+
 ## Project documentation
 
 - [Documentation](https://nanielito.github.io/sonvik/)

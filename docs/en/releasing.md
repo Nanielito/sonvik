@@ -1,6 +1,6 @@
 # Releasing Sonvik
 
-`release-plz` prepares versions from Conventional Commits. It owns version changes, `CHANGELOG.md`, the `v<semver>` tag, and crates.io publication. It does not create the GitHub Release or publish binaries.
+`release-plz` prepares versions from Conventional Commits. It owns version changes, `CHANGELOG.md`, the `v<semver>` tag, and crates.io publication. `cargo-dist` uses that tag to create the GitHub Release and attach portable archives and SHA-256 checksums.
 
 ## One-time setup
 
@@ -19,10 +19,11 @@ The crates.io token is required for the first publication because new crates can
 2. release-plz opens or updates a `release-plz-*` pull request with the proposed version, `Cargo.lock`, and changelog.
 3. Review the diff and wait for CI to pass.
 4. Merging that pull request makes release-plz publish the crate and create the corresponding tag.
+5. The tag starts the distribution workflow. The GitHub Release is published only after every required native build and checksum job succeeds.
 
 `release_always = false` limits publication and tag creation to commits from the release pull request. An open pull request or an ordinary push does not publish.
 
-Do not merge the first release pull request until the binary distribution issue is implemented. This allows the `v0.1.0` tag to trigger the workflow that creates the GitHub Release and attaches its artifacts.
+Release archives are built for Linux x86_64, macOS Apple Silicon, and Windows x86_64. Installers, package-manager formulas, signing, and additional architectures are not part of the MVP.
 
 ## Local validation
 
@@ -31,6 +32,7 @@ Before enabling publication:
 ```bash
 cargo package --list
 cargo publish --dry-run
+dist plan --tag v0.1.0
 ```
 
 Publication is permanent: an existing version cannot be overwritten or deleted from crates.io; it can only be yanked.
