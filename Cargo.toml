@@ -10,7 +10,6 @@ homepage = "https://nanielito.github.io/sonvik/"
 readme = "README.md"
 keywords = ["api", "cli", "http", "testing"]
 categories = ["command-line-utilities", "development-tools::testing"]
-publish = ["crates-io"]
 include = [
     "/src/**",
     "/tests/**",
