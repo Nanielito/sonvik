@@ -2,13 +2,26 @@ name: CI
 
 on:
   push:
+    branches: [main]
+    paths: &rust_paths
+      - ".cargo/**"
+      - ".github/workflows/ci.yml"
+      - "benches/**"
+      - "build.rs"
+      - "Cargo.lock"
+      - "Cargo.toml"
+      - "examples/**"
+      - "rust-toolchain*"
+      - "src/**"
+      - "tests/**"
   pull_request:
+    paths: *rust_paths
 
 jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-26.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
