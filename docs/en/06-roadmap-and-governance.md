@@ -3,7 +3,7 @@
 | Field | Value |
 | --- | --- |
 | Status | Approved |
-| Version | 0.1.0 |
+| Version | 0.1.1 |
 | Product target | MVP 0.1.0 |
 | Last updated | 2026-10-16 |
 
@@ -32,9 +32,9 @@ Deliver executable verticals. The roadmap expresses order and gates, not dates o
 
 - CI on macOS, Linux, and Windows.
 - CU-003/CU-005, usage documentation, and examples.
-- Binaries/checksums if the process proves sustainable.
+- Portable archives and SHA-256 checksums for Linux x86_64, macOS Apple Silicon, and Windows x86_64.
 
-**Gate:** every MVP Must has evidence and fixtures/output contain no secrets.
+**Gate:** every MVP Must has evidence, native release jobs produce the three required archives and checksums, and fixtures/output contain no secrets.
 
 ### After 0.1.0
 
@@ -58,6 +58,7 @@ A capability is done when it:
 - One CLI E2E test against an ephemeral local server.
 - Security cases for redaction and no sending after local errors.
 - Smoke builds per operating system.
+- A distribution plan that validates the release tag, target matrix, archives, and checksums before publication.
 
 No percentage coverage target is set; evidence is required for branches with distinct behavior.
 
@@ -72,11 +73,11 @@ No percentage coverage target is set; evidence is required for branches with dis
 | RSK-005 | HTTP behavior differs across platforms | Medium | Integration tests and native CI |
 | RSK-006 | Abstractions for future consumers | Medium | Extract only after a second implementation |
 
-## 6. Open decisions
+## 6. Resolved decisions
 
-| ID | Decision | Deadline |
+| ID | Decision | Resolution |
 | --- | --- | --- |
-| OQ-006 | Minimum OS/architecture matrix | Before M2 |
+| OQ-006 | Minimum OS/architecture matrix | Linux x86_64, macOS Apple Silicon, and Windows x86_64 for MVP releases |
 
 ## 7. Versioning
 
@@ -104,4 +105,5 @@ An ADR includes context, options, decision, consequences, validation, and review
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 0.1.1 | 2026-10-16 | Resolve the MVP release matrix and distribution gate |
 | 0.1.0 | 2026-10-16 | Initial roadmap and governance |

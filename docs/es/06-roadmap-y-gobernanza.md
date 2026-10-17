@@ -3,7 +3,7 @@
 | Campo | Valor |
 | --- | --- |
 | Estado | Aprobado |
-| Versión | 0.1.0 |
+| Versión | 0.1.1 |
 | Producto objetivo | MVP 0.1.0 |
 | Última actualización | 2026-10-16 |
 
@@ -32,9 +32,9 @@ Entregar verticales ejecutables. El roadmap expresa orden y gates, no fechas ni 
 
 - CI en macOS, Linux y Windows.
 - CU-003/CU-005, documentación de uso y ejemplos.
-- Binarios/checksums si el proceso resulta sostenible.
+- Archivos portables y checksums SHA-256 para Linux x86_64, macOS Apple Silicon y Windows x86_64.
 
-**Gate:** todos los Must del MVP tienen evidencia y no hay secretos en fixtures/output.
+**Gate:** todos los Must del MVP tienen evidencia, los jobs nativos de release producen los tres archivos y checksums requeridos, y no hay secretos en fixtures/output.
 
 ### Después de 0.1.0
 
@@ -58,6 +58,7 @@ Una capacidad está terminada cuando:
 - Un E2E CLI contra servidor local efímero.
 - Casos de seguridad para redacción y ausencia de envío tras error local.
 - Smoke builds por sistema operativo.
+- Un plan de distribución que valida el tag de release, la matriz objetivo, los archivos y checksums antes de publicar.
 
 No se fija cobertura porcentual: se exige evidencia sobre ramas con comportamiento distinto.
 
@@ -72,11 +73,11 @@ No se fija cobertura porcentual: se exige evidencia sobre ramas con comportamien
 | RSK-005 | Diferencias HTTP entre plataformas | Medio | Tests de integración y CI nativa |
 | RSK-006 | Abstracciones para futuros consumidores | Medio | Extraer solo ante segunda implementación |
 
-## 6. Decisiones abiertas
+## 6. Decisiones resueltas
 
-| ID | Decisión | Momento límite |
+| ID | Decisión | Resolución |
 | --- | --- | --- |
-| OQ-006 | Matriz mínima de SO/arquitectura | Antes de M2 |
+| OQ-006 | Matriz mínima de SO/arquitectura | Linux x86_64, macOS Apple Silicon y Windows x86_64 para releases del MVP |
 
 ## 7. Versionado
 
@@ -104,4 +105,5 @@ Un ADR incluye contexto, opciones, decisión, consecuencias, validación y condi
 
 | Versión | Fecha | Cambio |
 | --- | --- | --- |
+| 0.1.1 | 2026-10-16 | Resolución de la matriz y el gate de distribución del MVP |
 | 0.1.0 | 2026-10-16 | Roadmap y gobernanza iniciales |
