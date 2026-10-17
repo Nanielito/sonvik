@@ -3,9 +3,12 @@ use std::{
     io::{Read, Write},
     net::TcpListener,
     process::{Command, Output},
+    sync::atomic::{AtomicUsize, Ordering},
     thread,
-    time::{Duration, SystemTime, UNIX_EPOCH},
+    time::Duration,
 };
+
+static NEXT_TEMP_DIRECTORY: AtomicUsize = AtomicUsize::new(0);
 
 #[test]
 fn exits_zero_when_assertion_passes() {
@@ -73,10 +76,7 @@ fn run_request(expected_status: u16) -> Output {
             .unwrap();
     });
 
-    let unique = SystemTime::now()
-        .duration_since(UNIX_EPOCH)
-        .unwrap()
-        .as_nanos();
+    let unique = NEXT_TEMP_DIRECTORY.fetch_add(1, Ordering::Relaxed);
     let directory = std::env::temp_dir().join(format!("sonvik-{}-{unique}", std::process::id()));
     fs::create_dir(&directory).unwrap();
     let request = directory.join("request.yaml");
