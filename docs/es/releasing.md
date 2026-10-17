@@ -21,6 +21,8 @@ El token de crates.io es necesario para la primera publicación porque los crate
 4. Al fusionar ese PR, release-plz publica el crate y crea el tag correspondiente.
 5. El tag inicia el workflow de distribución. El GitHub Release se publica solamente cuando todos los builds nativos y jobs de checksums requeridos terminan correctamente.
 
+El job de publicación usa `RELEASE_PLZ_TOKEN` para crear el tag porque los eventos generados con el `GITHUB_TOKEN` predeterminado no pueden iniciar el workflow de distribución. Para recuperar un tag existente sin moverlo ni republicar crates.io, se puede ejecutar manualmente el workflow **Release** indicando el tag `v<semver>`; el workflow valida que el tag, el commit y la versión de Cargo coincidan, y reutiliza cualquier GitHub Release existente.
+
 `release_always = false` limita publicación y creación de tags a commits provenientes del PR de release. Un PR abierto o un push ordinario no publica.
 
 Los archivos de release se construyen para Linux x86_64, macOS Apple Silicon y Windows x86_64. Instaladores, fórmulas de package managers, firma y arquitecturas adicionales no pertenecen al MVP.
