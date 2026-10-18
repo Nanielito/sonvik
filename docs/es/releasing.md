@@ -4,14 +4,14 @@
 
 ## Configuración única
 
-Daniel Ramirez debe completar estos pasos en GitHub y crates.io antes de fusionar el primer PR de release:
+Daniel Ramirez debe mantener esta configuración en GitHub y crates.io:
 
 1. Iniciar sesión en crates.io con GitHub y verificar el correo electrónico.
-2. Crear un token de crates.io de corta duración con permisos `publish-new` y `publish-update`, y guardarlo como el secret de Actions `CARGO_REGISTRY_TOKEN`.
+2. En la configuración del crate `sonvik`, registrar un Trusted Publisher de GitHub Actions con owner `Nanielito`, repositorio `sonvik`, workflow `release-plz.yml` y sin environment.
 3. Crear un fine-grained personal access token limitado al repositorio `Nanielito/sonvik`, con acceso de lectura y escritura a Contents y Pull requests, y guardarlo como `RELEASE_PLZ_TOKEN`. Los PR creados con este token sí disparan el CI del repositorio.
 4. En **Settings → Actions → General**, permitir que GitHub Actions cree pull requests.
 
-El token de crates.io es necesario para la primera publicación porque los crates nuevos no admiten Trusted Publishing. Después de publicar `v0.1.0`, se debe revocar el token, migrar a Trusted Publishing y eliminar `CARGO_REGISTRY_TOKEN` en un cambio separado.
+El job `release` tiene permiso `id-token: write`; release-plz intercambia la identidad OIDC de GitHub por una credencial de crates.io de corta duración. El workflow no usa `CARGO_REGISTRY_TOKEN`. Después de verificar la primera autenticación OIDC, se debe revocar el token temporal usado para `v0.1.0` en crates.io y eliminar el secret de Actions `CARGO_REGISTRY_TOKEN`.
 
 ## Flujo de release
 

@@ -4,14 +4,14 @@
 
 ## One-time setup
 
-Daniel Ramirez must complete these steps in GitHub and crates.io before merging the first release pull request:
+Daniel Ramirez must maintain this configuration in GitHub and crates.io:
 
 1. Sign in to crates.io with GitHub and verify the email address.
-2. Create a short-lived crates.io token with `publish-new` and `publish-update` permissions, and save it as the `CARGO_REGISTRY_TOKEN` Actions secret.
+2. In the `sonvik` crate settings, register a GitHub Actions Trusted Publisher with owner `Nanielito`, repository `sonvik`, workflow `release-plz.yml`, and no environment.
 3. Create a fine-grained personal access token limited to the `Nanielito/sonvik` repository, with read and write access to Contents and Pull requests, and save it as `RELEASE_PLZ_TOKEN`. Pull requests created with this token trigger the repository CI.
 4. In **Settings → Actions → General**, allow GitHub Actions to create pull requests.
 
-The crates.io token is required for the first publication because new crates cannot use Trusted Publishing. After publishing `v0.1.0`, revoke the token, migrate to Trusted Publishing, and remove `CARGO_REGISTRY_TOKEN` in a separate change.
+The `release` job has `id-token: write`; release-plz exchanges the GitHub OIDC identity for a short-lived crates.io credential. The workflow does not use `CARGO_REGISTRY_TOKEN`. After verifying the first OIDC authentication, revoke the temporary token used for `v0.1.0` on crates.io and delete the `CARGO_REGISTRY_TOKEN` Actions secret.
 
 ## Release flow
 
